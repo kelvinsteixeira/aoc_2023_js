@@ -1,5 +1,5 @@
-const input = 
-`Game 1: 2 blue, 4 green; 7 blue, 1 red, 14 green; 5 blue, 13 green, 1 red; 1 red, 7 blue, 11 green
+const input =
+    `Game 1: 2 blue, 4 green; 7 blue, 1 red, 14 green; 5 blue, 13 green, 1 red; 1 red, 7 blue, 11 green
 Game 2: 6 blue, 3 green; 4 red, 1 green, 7 blue; 2 green
 Game 3: 4 blue, 3 red; 2 blue, 4 red, 7 green; 1 blue, 6 red, 7 green; 5 green, 10 blue; 9 green, 1 blue, 6 red; 8 blue, 1 red, 12 green
 Game 4: 15 blue, 4 green, 5 red; 2 red, 2 green, 5 blue; 3 green, 13 blue; 17 blue, 1 green, 5 red
@@ -100,19 +100,7 @@ Game 98: 11 red, 6 blue, 13 green; 4 blue, 2 red, 12 green; 2 blue, 8 green, 10 
 Game 99: 2 red, 1 blue; 4 green; 7 green, 1 blue, 1 red; 5 green, 2 red; 1 blue, 2 red, 9 green; 2 green, 3 red
 Game 100: 7 red, 11 blue; 10 red, 5 blue, 1 green; 7 red, 1 green, 13 blue; 9 red; 9 red, 19 blue; 9 red, 9 blue`;
 
-const inputTest = `Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
-Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
-Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
-Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
-Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green`;
-
 const bagCubes = {
-    blue: 14,
-    green: 13,
-    red: 12,
-};
-
-const bagCubesTest = {
     blue: 14,
     green: 13,
     red: 12,
@@ -121,6 +109,4 @@ const bagCubesTest = {
 module.exports = {
     input,
     bagCubes,
-    bagCubesTest,
-    inputTest
 };
