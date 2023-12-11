@@ -66,7 +66,7 @@ function exec() {
         }
     }
 
-    console.log('(Day 3 pt 1) Result is: ', sum);
+    return sum;
 }
 
 module.exports = {

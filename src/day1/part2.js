@@ -71,7 +71,7 @@ function exec() {
         }
     });
 
-    console.log('(Day 1 pt 2) Result is: ', sum);
+    return sum;
 }
 
 module.exports = {

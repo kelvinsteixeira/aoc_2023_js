@@ -1,0 +1,14 @@
+const day1 = require('./day1');
+const day2 = require('./day2');
+const day3 = require('./day3');
+
+const doLog = (text, result) => {
+    console.log(`${text}: ${result}`);
+}
+
+doLog('Day 1 Part 1 Result', day1.part1.exec());
+doLog('Day 1 Part 2 Result', day1.part2.exec());
+doLog('Day 2 Part 1 Result', day2.part1.exec());
+doLog('Day 2 Part 2 Result', day2.part2.exec());
+doLog('Day 3 Part 1 Result', day3.part1.exec());
+doLog('Day 3 Part 2 Result', day3.part2.exec());
