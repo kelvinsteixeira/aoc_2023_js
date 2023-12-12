@@ -1,6 +1,6 @@
 const utils = require('./utils');
 
-function calculate_distance(galaxy1, galaxy2, row_expanssions, col_expanssions) {
+function calculate_distance(galaxy1, galaxy2, row_expanssions, col_expanssions, expand_factor) {
 
     let min_row = Math.min(galaxy1.row, galaxy2.row);
     let max_row = Math.max(galaxy1.row, galaxy2.row);
@@ -10,8 +10,8 @@ function calculate_distance(galaxy1, galaxy2, row_expanssions, col_expanssions) 
     let sel_row_expansions = row_expanssions.filter(row => row >= min_row && row <= max_row);
     let sel_col_expanssions = col_expanssions.filter(col => col >= min_col && col <= max_col);
 
-    let row_add = sel_row_expansions.length * 999999;
-    let col_add = sel_col_expanssions.length * 999999;
+    let row_add = sel_row_expansions.length * expand_factor;
+    let col_add = sel_col_expanssions.length * expand_factor;
 
     return (Math.abs(galaxy1.row - galaxy2.row) + row_add) + (Math.abs(galaxy1.col - galaxy2.col) + col_add);
 }
@@ -61,8 +61,10 @@ function exec() {
     let total = 0;
     for (let galaxy of galaxies) {
         let other_galaxies = galaxies.filter(g => g.id > galaxy.id);
-        total += other_galaxies.reduce((acc, g) => acc + calculate_distance(galaxy, g, expanded_universe.row_expanssions, expanded_universe.col_expanssions), 0);
+        total += other_galaxies.reduce((acc, g) => acc + calculate_distance(galaxy, g, expanded_universe.row_expanssions, expanded_universe.col_expanssions, 999999), 0);
     }
+
+    return total;
 }
 
 module.exports = {

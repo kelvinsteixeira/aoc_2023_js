@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node src/index.js",
-    "benchmark": "node src/benchmark.js"
+    "bench": "node src/benchmark.js"
   },
   "author": "",
   "license": "ISC",
