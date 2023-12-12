@@ -1,15 +1,15 @@
 const utils = require('./utils.js');
 
-const isNumber = (char) => {
+const is_num = (char) => {
     return !isNaN(char);
 }
 
-const getFirstAndLast = (line) => {
+const find_num = (line) => {
     let first_digit = null;
     let last_digit = null;
 
     for (let ch of line) {
-        if (isNumber(ch)) {
+        if (is_num(ch)) {
             last_digit = ch;
             if (!first_digit) {
                 first_digit = ch;
@@ -25,9 +25,9 @@ function exec() {
 
     let sum = 0;
     lines.forEach((line) => {
-        let result = getFirstAndLast(line);
-        if (result) {
-            sum += parseInt(result);
+        let line_num = find_num(line);
+        if (line_num) {
+            sum += parseInt(line_num);
         }
     });
 
