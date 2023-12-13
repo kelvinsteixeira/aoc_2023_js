@@ -1,23 +1,54 @@
 const utils = require("./utils");
 
-function get_line_arrangements(line) {
-  const [springs_str, sizes_str] = line.split(" ");
-  const sizes = sizes_str.split(",").map((s) => parseInt(s));
+function isValid(spring, condition) {
+  const sequences = [];
+  let damagedCount = 0;
 
-  return 1;
+  for (let i = 0; i < spring.length; i++) {
+    if (spring[i] === '#') {
+      damagedCount++;
+    } else if (damagedCount > 0) {
+      sequences.push(damagedCount);
+      damagedCount = 0;
+    }
+  }
+
+  if (damagedCount > 0) {
+    sequences.push(damagedCount);
+  }
+
+  return sequences.join(",") === condition.join(",");
 }
 
-function get_next_variation(line) {
-    
+function check(line, condition, acc = 0) {
+
+  let index = line.indexOf("?");
+  if (index === -1) {
+    return acc += isValid(line, condition) ? 1 : 0;
+  }
+
+  const start = line.substring(0, index);
+  const end = line.substring(index + 1);
+
+  acc = check(`${start}.${end}`, condition, acc);
+  acc = check(`${start}#${end}`, condition, acc);
+
+  return acc;
 }
 
 function exec() {
-  const lines = utils.input.split("\n");
+  const values = utils.input.split("\n");
 
-  lines.reduce((acc, line) => {
-    const arrangements = get_line_arrangements(line);
-    return acc + arrangements;
-  }, 0);
+  let sum = 0;
+  for (let i = 0; i < values.length; i++) {
+
+    let spring = values[i].split(" ")[0];
+    let condition = values[i].split(" ")[1].split(",").map((s) => parseInt(s));
+
+    sum += check(spring, condition);
+  }
+
+  return sum;
 }
 
 module.exports = {

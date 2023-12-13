@@ -3,6 +3,7 @@ const day2 = require('./day2');
 const day3 = require('./day3');
 const day4 = require('./day4');
 const day11 = require('./day11');
+const day12 = require('./day12');
 
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
@@ -17,6 +18,7 @@ suite
   .add('Day 4: part 1', () => day4.part1.exec())
   .add('Day 11: part 1', () => day11.part1.exec())
   .add('Day 11: part 2', () => day11.part2.exec())
+  .add('Day 12: part 1', () => day12.part1.exec())
   .on('cycle', function(event) {
     console.log(String(event.target));
 
